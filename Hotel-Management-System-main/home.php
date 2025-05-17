@@ -38,6 +38,471 @@ if($usermail == true){
       #guestdetailpanel .middle{
         height: 450px;
       }
+      :root {
+            --primary-blue: #1a4b8c;
+            --secondary-blue: #2a6ec6;
+            --light-blue: #e6f0fa;
+            --white: #ffffff;
+            --light-gray: #f8f9fa;
+            --dark-gray: #333333;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark-gray);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            padding: 15px 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        nav.scrolled {
+            padding: 10px 5%;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .bluebirdlogo {
+            height: 40px;
+            width: auto;
+        }
+        
+        .logo p {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            margin: 0;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 30px;
+            align-items: center;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary-blue);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-blue);
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .carousel_section {
+            margin-top: 70px;
+            height: 100vh;
+            min-height: 700px;
+            position: relative;
+        }
+        
+        .carousel-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.7);
+        }
+        
+        .welcomeline {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            width: 100%;
+            z-index: 10;
+        }
+        
+        .welcometag {
+            color: var(--white);
+            font-size: 4rem;
+            margin-bottom: 30px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .book-now-btn {
+            background-color: var(--primary-blue);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(26, 75, 140, 0.3);
+        }
+        
+        .book-now-btn:hover {
+            background-color: var(--secondary-blue);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(26, 75, 140, 0.4);
+        }
+        
+        /* Booking Panel */
+        #guestdetailpanel {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            z-index: 1001;
+            width: 90%;
+            max-width: 800px;
+            overflow: hidden;
+            display: none;
+        }
+        
+        .guestdetailpanelform {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .head {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .head h3 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+        
+        .head i {
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .head i:hover {
+            transform: rotate(90deg);
+        }
+        
+        .middle {
+            padding: 30px;
+            display: flex;
+            gap: 30px;
+        }
+        
+        .guestinfo, .reservationinfo {
+            flex: 1;
+        }
+        
+        .guestinfo h4, .reservationinfo h4 {
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        input, .selectinput {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Montserrat', sans-serif;
+            transition: border-color 0.3s ease;
+        }
+        
+        input:focus, .selectinput:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+        }
+        
+        .datesection {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        .datesection span {
+            flex: 1;
+        }
+        
+        .datesection label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+            color: var(--dark-gray);
+        }
+        
+        .footer {
+            padding: 20px;
+            background-color: var(--light-gray);
+            text-align: right;
+        }
+        
+        .footer button {
+            background-color: var(--primary-blue);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1rem;
+            font-weight: 500;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .footer button:hover {
+            background-color: var(--secondary-blue);
+        }
+        
+        /* Rooms Section */
+        #secondsection {
+            padding: 100px 5%;
+            background-color: var(--light-gray);
+            position: relative;
+        }
+        
+        #secondsection img {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 0;
+            opacity: 0.1;
+        }
+        
+        .head {
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--primary-blue);
+            position: relative;
+        }
+        
+        .head::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-blue);
+            margin: 15px auto 0;
+        }
+        
+        .roomselect {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .roombox {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+        
+        .roombox:hover {
+            transform: translateY(-10px);
+        }
+        
+        .hotelphoto {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .h1 { background-image: url('./image/room1.jpg'); }
+        .h2 { background-image: url('./image/room2.jpg'); }
+        .h3 { background-image: url('./image/room3.jpg'); }
+        .h4 { background-image: url('./image/room4.jpg'); }
+        
+        .roomdata {
+            padding: 20px;
+        }
+        
+        .roomdata h2 {
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .services {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            color: var(--secondary-blue);
+        }
+        
+        .bookbtn {
+            background-color: var(--primary-blue);
+            width: 100%;
+            padding: 10px;
+            font-weight: 500;
+            border: none;
+            transition: all 0.3s ease;
+        }
+        
+        .bookbtn:hover {
+            background-color: var(--secondary-blue);
+        }
+        
+        /* Facilities Section */
+        #thirdsection {
+            padding: 100px 5%;
+            background-color: var(--white);
+        }
+        
+        .facility {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .box {
+            background-color: var(--light-blue);
+            border-radius: 10px;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+        
+        .box:hover {
+            transform: translateY(-5px);
+            background-color: var(--primary-blue);
+            color: var(--white);
+        }
+        
+        .box h2 {
+            font-size: 1.3rem;
+            margin: 0;
+        }
+        
+        /* Contact Section */
+        #contactus {
+            padding: 60px 5%;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-align: center;
+        }
+        
+        .social {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .social i {
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .social i:hover {
+            transform: translateY(-5px);
+            color: var(--light-blue);
+        }
+        
+        .createdby h5 {
+            margin: 0;
+            font-weight: 300;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .welcometag {
+                font-size: 3rem;
+            }
+            
+            .middle {
+                flex-direction: column;
+                height: auto;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 15px;
+            }
+            
+            .welcometag {
+                font-size: 2.5rem;
+            }
+            
+            .roomselect {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            nav {
+                flex-direction: column;
+                padding: 15px;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .welcometag {
+                font-size: 2rem;
+            }
+            
+            .datesection {
+                flex-direction: column;
+            }
+        }
     </style>
 </head>
 
@@ -303,5 +768,33 @@ if($usermail == true){
     closebox = () =>{
       bookbox.style.display = "none";
     }
+     // Booking panel functions
+        function openbookbox() {
+            document.getElementById('guestdetailpanel').style.display = 'block';
+        }
+        
+        function closebox() {
+            document.getElementById('guestdetailpanel').style.display = 'none';
+        }
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                document.querySelector('nav').classList.add('scrolled');
+            } else {
+                document.querySelector('nav').classList.remove('scrolled');
+            }
+        });
+        
+        // Set minimum date for check-in to today
+        document.addEventListener('DOMContentLoaded', function() {
+            const today = new Date().toISOString().split('T')[0];
+            document.querySelector('input[name="cin"]').min = today;
+            
+            // Update check-out min date when check-in changes
+            document.querySelector('input[name="cin"]').addEventListener('change', function() {
+                document.querySelector('input[name="cout"]').min = this.value;
+            });
+        });
 </script>
 </html>
